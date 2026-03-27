@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Reserva tu cita online. Barbería premium con los mejores profesionales." />
+  <title>SAN Diego BARBER</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+</head>
+<body>
+
+<!-- ── FLOATING BUTTONS ── -->
+<div id="floating-buttons">
+  <a id="btn-whatsapp-float" class="float-btn float-btn-wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+  <a href="#reservas" class="float-btn float-btn-book" aria-label="Reservar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+    Reservar
+  </a>
+</div>
+
+<!-- ── TOAST CONTAINER ── -->
+<div id="toast-container" aria-live="polite"></div>
+
+<!-- ── CONFIRMATION OVERLAY ── -->
+<div id="confirmation-overlay" class="hidden" role="dialog" aria-modal="true" aria-label="Reserva confirmada">
+  <div class="confirmation-box animate-scaleIn">
+    <div class="confirmation-icon">
+      <svg class="checkmark-svg" viewBox="0 0 52 52">
+        <circle cx="26" cy="26" r="24" fill="rgba(45,106,79,0.2)" stroke="#2D6A4F" stroke-width="2"/>
+        <path class="checkmark-path" d="M14 27l9 9 16-18" stroke="#2D6A4F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="100" stroke-dashoffset="100"/>
+      </svg>
+    </div>
+    <h2 class="confirmation-title">¡Reserva Confirmada!</h2>
+    <p class="confirmation-subtitle">Tu cita ha sido agendada exitosamente.</p>
+    <div class="confirmation-details" id="confirmation-details">
+      <!-- filled by confirmation.js -->
+    </div>
+    <div class="confirmation-actions">
+      <a id="confirmation-wa-btn" href="#" target="_blank" class="btn btn-whatsapp btn-full">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Enviar confirmación por WhatsApp
+      </a>
+      <button id="confirmation-close-btn" class="btn btn-ghost btn-full">Volver al inicio</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav id="main-nav" role="navigation" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo" data-nav="home">
+      <span data-business-name>SAN Diego BARBER</span>
+    </a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="#home"     data-nav="home">Inicio</a></li>
+      <li><a href="#barberos" data-nav="barberos">Barberos</a></li>
+      <li><a href="#servicios" data-nav="servicios">Servicios</a></li>
+      <li><a href="#reservas" data-nav="reservas" class="nav-cta">Reservar</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── MAIN ── -->
+<main>
+
+  <!-- HOME -->
+  <section id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-bg-gradient"></div>
+    <div class="hero-content container">
+      <span class="hero-eyebrow animate-fadeInUp stagger-1">✦ Barbería Premium</span>
+      <h1 class="hero-title animate-fadeInUp stagger-2">
+        <span data-business-name>SAN Diego BARBER</span>
+      </h1>
+      <p class="hero-tagline animate-fadeInUp stagger-3" data-business-tagline>
+        Estilo, precisión y confianza en cada corte
+      </p>
+      <div class="hero-actions animate-fadeInUp stagger-4">
+        <a href="#reservas" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Reservar Ahora
+        </a>
+        <a href="#barberos" class="btn btn-outline">Conoce el equipo</a>
+      </div>
+      <div class="hero-stats animate-fadeInUp stagger-5">
+        <div>
+          <div class="hero-stat-value">5+</div>
+          <div class="hero-stat-label">Barberos expertos</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">8+</div>
+          <div class="hero-stat-label">Servicios</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">100%</div>
+          <div class="hero-stat-label">Satisfacción</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- BARBEROS -->
+  <section id="barberos" class="reveal">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nuestro Equipo</h2>
+        <p class="section-subtitle">Profesionales con pasión por el estilo masculino</p>
+        <div class="accent-line"></div>
+      </div>
+      <div class="barbers-grid" id="barbers-grid">
+        <!-- filled by ui.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="reveal">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Servicios</h2>
+        <p class="section-subtitle">Calidad y precisión en cada detalle</p>
+        <div class="accent-line"></div>
+      </div>
+      <div class="category-tabs" id="category-tabs">
+        <button class="category-tab active" data-cat="all">Todos</button>
+        <button class="category-tab" data-cat="corte">Cortes</button>
+        <button class="category-tab" data-cat="barba">Barba</button>
+        <button class="category-tab" data-cat="tratamiento">Tratamientos</button>
+        <button class="category-tab" data-cat="combo">Combos</button>
+      </div>
+      <div class="services-layout" id="services-grid">
+        <!-- filled by ui.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK BOOK BANNER -->
+  <div id="quick-book-banner" class="reveal">
+    <div class="container">
+      <div class="quick-book-inner">
+        <div class="quick-book-text">
+          <h3>¿Quieres una cita rápida?</h3>
+          <p>Reserva en menos de 60 segundos</p>
+        </div>
+        <button id="quick-book-btn" class="btn btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Reserva Rápida
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVAS -->
+  <section id="reservas" class="reveal">
+    <div class="container">
+      <div class="booking-layout">
+        <!-- Info lateral -->
+        <div class="booking-info">
+          <h2 class="booking-info-title">Agenda tu Cita</h2>
+          <p class="booking-info-text">
+            Selecciona tu servicio, barbero favorito y el horario que mejor te convenga.
+            Solo tomamos reservas durante nuestro horario de atención.
+          </p>
+          <div class="booking-steps">
+            <div class="booking-step">
+              <div class="booking-step-num">1</div>
+              <span class="booking-step-label">Elige tu servicio</span>
+            </div>
+            <div class="booking-step">
+              <div class="booking-step-num">2</div>
+              <span class="booking-step-label">Selecciona tu barbero</span>
+            </div>
+            <div class="booking-step">
+              <div class="booking-step-num">3</div>
+              <span class="booking-step-label">Escoge fecha y hora disponible</span>
+            </div>
+            <div class="booking-step">
+              <div class="booking-step-num">4</div>
+              <span class="booking-step-label">Confirma por WhatsApp</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario -->
+        <div class="booking-form-card">
+          <div class="booking-form-title">Datos de la Reserva</div>
+          <form id="booking-form" novalidate>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="book-name">Nombre *</label>
+                <input class="form-control" type="text" id="book-name" placeholder="Juan" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="book-lastname">Apellido *</label>
+                <input class="form-control" type="text" id="book-lastname" placeholder="Pérez" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="book-phone">Teléfono *</label>
+              <input class="form-control" type="tel" id="book-phone" placeholder="+1 619 555 0000" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="book-service">Servicio *</label>
+              <select class="form-control" id="book-service" required>
+                <option value="">— Seleccionar servicio —</option>
+              </select>
+            </div>
+
+            <!-- Upsells (hidden initially) -->
+            <div id="upsell-container" class="hidden"></div>
+
+            <div class="form-group">
+              <label class="form-label" for="book-barber">Barbero *</label>
+              <select class="form-control" id="book-barber" required>
+                <option value="">— Seleccionar barbero —</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="book-date">Fecha *</label>
+              <input class="form-control" type="date" id="book-date" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Hora disponible *</label>
+              <div id="time-slots-container">
+                <p class="time-slots-empty">Selecciona servicio, barbero y fecha primero.</p>
+              </div>
+              <input type="hidden" id="book-time" required />
+            </div>
+
+            <!-- Summary -->
+            <div class="booking-summary" id="booking-summary" style="display:none">
+              <div class="booking-summary-item">
+                Duración: <strong id="summary-duration">—</strong>
+              </div>
+              <div class="booking-summary-item">
+                Total: <strong id="summary-price">—</strong>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full" id="booking-submit">
+              Confirmar Reserva
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo"><span data-business-name>SAN Diego BARBER</span></div>
+        <p class="footer-desc" data-business-tagline>Estilo, precisión y confianza en cada corte.</p>
+        <p style="color:var(--color-text-muted);font-size:0.85rem;" data-business-address>123 Main St, San Diego, CA</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navegación</div>
+        <ul class="footer-links">
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#barberos">Barberos</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#reservas">Reservas</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contacto</div>
+        <ul class="footer-links">
+          <li><a id="footer-wa" href="#" target="_blank">WhatsApp</a></li>
+          <li><a href="#reservas">Reservar cita</a></li>
+          <li><a href="admin.html">Admin</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="footer-year"></span> <span data-business-name>SAN Diego BARBER</span>. Todos los derechos reservados.</span>
+      <span style="color:var(--color-border);">Sistema de reservas online</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ── QUICK BOOK MODAL ── -->
+<div id="quick-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-label="Reserva rápida">
+  <div class="modal animate-scaleIn">
+    <div class="modal-header">
+      <h3 class="modal-title">⚡ Reserva Rápida</h3>
+      <button class="modal-close" id="quick-modal-close" aria-label="Cerrar">✕</button>
+    </div>
+    <form id="quick-book-form" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="qb-name">Nombre *</label>
+        <input class="form-control" type="text" id="qb-name" placeholder="Tu nombre" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="qb-service">Servicio *</label>
+        <select class="form-control" id="qb-service" required>
+          <option value="">— Seleccionar —</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="qb-barber">Barbero *</label>
+        <select class="form-control" id="qb-barber" required>
+          <option value="">— Cualquier barbero —</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="qb-date">Fecha *</label>
+        <input class="form-control" type="date" id="qb-date" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Hora</label>
+        <div id="qb-time-slots">
+          <p class="time-slots-empty">Selecciona los campos anteriores.</p>
+        </div>
+        <input type="hidden" id="qb-time" />
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">Reservar ahora</button>
+    </form>
+  </div>
+</div>
+
+<!-- ── SCRIPTS ── -->
+<script src="config.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/availability.js"></script>
+<script src="js/whatsapp.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/booking.js"></script>
+<script src="js/confirmation.js"></script>
+<script src="js/reminder.js"></script>
+<script src="js/config-loader.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

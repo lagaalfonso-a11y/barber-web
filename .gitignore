@@ -1,0 +1,8 @@
+.DS_Store
+.claude/
+GitHub/
+*.bak
+proms que tengo que editar
+node_modules/
+.env
+.env.local

@@ -1,0 +1,137 @@
+/* ============================================================
+   animations.css — Keyframes y clases de animación
+   ============================================================ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(-8px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes toastOut {
+  to { opacity: 0; transform: translateX(40px); }
+}
+
+@keyframes checkmark {
+  0%   { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* ── Utility classes ── */
+.animate-fadeIn    { animation: fadeIn 0.5s ease both; }
+.animate-fadeInUp  { animation: fadeInUp 0.6s ease both; }
+.animate-scaleIn   { animation: scaleIn 0.3s ease both; }
+.animate-pulse     { animation: pulse 2s ease-in-out infinite; }
+
+/* ── Stagger delays for cards ── */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.10s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.20s; }
+.stagger-5 { animation-delay: 0.25s; }
+
+/* ── Skeleton loading ── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface) 25%,
+    var(--color-surface-2) 50%,
+    var(--color-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: var(--radius-md);
+}
+
+/* ── Intersection Observer fade-in ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Float button pulse (attention) ── */
+.float-btn-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50px;
+  border: 2px solid var(--color-accent);
+  animation: pulse 2s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+/* ── Toast exit ── */
+.toast.removing {
+  animation: toastOut 0.3s ease forwards;
+}
+
+/* ── Page section transitions ── */
+.section-enter {
+  animation: fadeInUp 0.4s ease both;
+}
+
+/* ── Confirmation success checkmark ── */
+.checkmark-svg {
+  width: 40px;
+  height: 40px;
+}
+
+.checkmark-path {
+  stroke: #2D6A4F;
+  stroke-width: 3;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  fill: none;
+  animation: checkmark 0.6s ease 0.3s forwards;
+}
+
+/* ── Nav scroll effect ── */
+.nav-scrolled {
+  background: rgba(0, 0, 0, 0.98) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+}
