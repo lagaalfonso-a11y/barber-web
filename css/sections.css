@@ -229,8 +229,14 @@ section {
 }
 
 .booking-info {
-  position: sticky;
-  top: calc(var(--nav-height) + 2rem);
+  position: static;
+}
+
+@media (min-width: 900px) {
+  .booking-info {
+    position: sticky;
+    top: calc(var(--nav-height) + 2rem);
+  }
 }
 
 .booking-info-title {
