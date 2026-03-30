@@ -5,14 +5,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-  --color-primary: #A6A6A6;
-  --color-accent: #C9A646;
-  --color-gray: #A6A6A6;
+  --color-primary: #1A3A52;
+  --color-accent: #D4A574;
+  --color-gray: #7BA3BF;
   --color-light: #FFFFFF;
-  --color-surface: #111111;
-  --color-surface-2: #1A1A1A;
-  --color-border: #2A2A2A;
-  --color-accent-hover: #B8962E;
+  --color-surface: #0D2438;
+  --color-surface-2: #152E42;
+  --color-border: #1E3D54;
+  --color-accent-hover: #BF9060;
   --color-text-muted: #666666;
   --color-success: #2D6A4F;
   --color-error: #8B1A1A;

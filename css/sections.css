@@ -23,7 +23,7 @@ section {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(0,0,0,0.8) 40%, rgba(75,46,46,0.3) 100%),
+    linear-gradient(135deg, rgba(0,0,0,0.8) 40%, rgba(26,58,82,0.3) 100%),
     url('../assets/images/hero-bg.jpg') center/cover no-repeat;
   z-index: 0;
 }
@@ -31,7 +31,7 @@ section {
 .hero-bg-gradient {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 70% 50%, rgba(75,46,46,0.15) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 70% 50%, rgba(26,58,82,0.15) 0%, transparent 60%);
   z-index: 1;
 }
 

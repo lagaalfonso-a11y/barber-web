@@ -23,13 +23,13 @@ const BUSINESS_CONFIG = {
   },
 
   theme: {
-    primary: "#A6A6A6",
-    accent: "#C9A646",
-    gray: "#A6A6A6",
+    primary: "#1A3A52",
+    accent: "#D4A574",
+    gray: "#7BA3BF",
     light: "#FFFFFF",
-    surface: "#111111",
-    surface2: "#1A1A1A",
-    border: "#2A2A2A"
+    surface: "#0D2438",
+    surface2: "#152E42",
+    border: "#1E3D54"
   },
 
   whatsapp: {

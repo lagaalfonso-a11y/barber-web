@@ -165,7 +165,7 @@
 .btn-primary:hover {
   background: var(--color-accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(75, 46, 46, 0.4);
+  box-shadow: 0 8px 24px rgba(26,58,82, 0.4);
 }
 
 .btn-outline {
@@ -260,7 +260,7 @@
 
 .float-btn-book:hover {
   background: var(--color-accent-hover);
-  box-shadow: 0 8px 32px rgba(75, 46, 46, 0.5);
+  box-shadow: 0 8px 32px rgba(26,58,82, 0.5);
 }
 
 .float-btn svg {
@@ -359,7 +359,7 @@
 
 .service-card.selected {
   border-color: var(--color-accent);
-  background: rgba(75,46,46,0.1);
+  background: rgba(26,58,82,0.1);
 }
 
 .service-info { flex: 1; }
@@ -412,7 +412,7 @@
   margin-top: 0.3rem;
 }
 
-.badge-corte { background: rgba(75,46,46,0.3); color: #C4836C; }
+.badge-corte { background: rgba(26,58,82,0.3); color: #C4836C; }
 .badge-barba { background: rgba(45,106,79,0.3); color: #74C69D; }
 .badge-tratamiento { background: rgba(60,60,120,0.3); color: #90A4D4; }
 .badge-combo { background: rgba(100,80,0,0.3); color: #D4AF37; }
@@ -448,7 +448,7 @@
 .form-control:focus {
   outline: none;
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(75, 46, 46, 0.2);
+  box-shadow: 0 0 0 3px rgba(26,58,82, 0.2);
 }
 
 .form-control::placeholder { color: var(--color-text-muted); }
@@ -581,7 +581,7 @@ select.form-control {
 
 .time-slot:hover {
   border-color: var(--color-accent);
-  background: rgba(75,46,46,0.15);
+  background: rgba(26,58,82,0.15);
 }
 
 .time-slot.selected {
