@@ -4,12 +4,12 @@
 // ============================================================
 
 const BUSINESS_CONFIG = {
-  businessId: "san-diego-barber",
-  name: "SAN Diego BARBER",
+  businessId: "Tokio CH Barber ",
+  name: "Tokio CH Barber",
   tagline: "Estilo, precisión y confianza en cada corte",
-  phone: "56912345000",
-  address: "123 Main St, San Diego, CA",
-  instagram: "@sandiegobarber",
+  phone: "56956854652",
+  address: "San Diego 161, Santiago Centro",
+  instagram: "@tokioch_dj",
   adminPassword: "pruebadedios123",
 
   currency: "$",
@@ -33,7 +33,7 @@ const BUSINESS_CONFIG = {
   },
 
   whatsapp: {
-    defaultNumber: "56912345000",
+    defaultNumber: "56956854652",
     bookingMessage: "Hola, soy {name}. Reservé {service} con {barber} para el {date} a las {time}.",
     reminderMessage: "Recordatorio: Tu cita en {business} es mañana {date} a las {time}. ¡Te esperamos!"
   },
@@ -45,7 +45,7 @@ const BUSINESS_CONFIG = {
       name: "Carlos Mendoza",
       specialty: "Fade clásico & degradados",
       photo: "",
-      whatsapp: "56912345001",
+      whatsapp: "56956854652",
       active: true,
       order: 1
     },
