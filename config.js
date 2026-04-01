@@ -4,8 +4,8 @@
 // ============================================================
 
 const BUSINESS_CONFIG = {
-  businessId: "Tokio CH Barber ",
-  name: "Tokio CH Barber",
+  businessId: "Barbería Tokio",
+  name: "Barbería Tokio",
   tagline: "Estilo, precisión y confianza en cada corte",
   phone: "56956854652",
   address: "San Diego 161, Santiago Centro",
@@ -84,6 +84,33 @@ const BUSINESS_CONFIG = {
       whatsapp: "56912345005",
       active: true,
       order: 5
+    },
+    {
+      id: "barber_006",
+      name: "Luis Guillén",
+      specialty: "Cortes clásicos & modernos",
+      photo: "",
+      whatsapp: "56912345006",
+      active: true,
+      order: 6
+    },
+    {
+      id: "barber_007",
+      name: "Pedro Díaz",
+      specialty: "Fade & degradados premium",
+      photo: "",
+      whatsapp: "56912345007",
+      active: true,
+      order: 7
+    },
+    {
+      id: "barber_008",
+      name: "José Luis",
+      specialty: "Barba & estilos urbanos",
+      photo: "",
+      whatsapp: "56912345008",
+      active: true,
+      order: 8
     }
   ],
 
